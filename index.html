@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Product Description Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= LOGIN PAGE ================= -->
+
+    <div id="loginPage" class="auth-page">
+
+        <div class="auth-box">
+
+            <div class="auth-logo">✨</div>
+
+            <h1>AI Product<br>Description Generator</h1>
+
+            <p>
+                Login to generate professional product descriptions
+            </p>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+            >
+
+            <button
+                class="auth-button"
+                onclick="login()"
+            >
+                🔐 Login
+            </button>
+
+            <div class="auth-link" onclick="showRegister()">
+                Don't have an account?
+                <span>Register</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= REGISTER PAGE ================= -->
+
+    <div id="registerPage" class="auth-page hidden">
+
+        <div class="auth-box">
+
+            <div class="auth-logo">✨</div>
+
+            <h1>Create Account</h1>
+
+            <p>
+                Create your account to use the AI Product Generator
+            </p>
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create a password"
+            >
+
+            <button
+                class="auth-button"
+                onclick="register()"
+            >
+                ✨ Create Account
+            </button>
+
+            <div class="auth-link" onclick="showLogin()">
+                Already have an account?
+                <span>Login</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MAIN APPLICATION ================= -->
+
+    <div id="appPage" class="hidden">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>✨ AI Product AI</h2>
+
+            <div class="menu">
+
+                <button
+                    class="menu-item active"
+                    onclick="showSection('dashboardSection', this)"
+                >
+                    🏠 Dashboard
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('generatorSection', this)"
+                >
+                    ✨ AI Generator
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('historySection', this)"
+                >
+                    📄 History
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('favoritesSection', this)"
+                >
+                    ❤️ Favorites
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('seoSection', this)"
+                >
+                    🔍 SEO Keywords
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('marketingSection', this)"
+                >
+                    📢 Marketing
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="showSection('profileSection', this)"
+                >
+                    👤 Profile
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="toggleDarkMode()"
+                >
+                    🌙 Dark Mode
+                </button>
+
+                <button
+                    class="menu-item"
+                    onclick="logout()"
+                >
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- RIGHT CONTENT -->
+
+        <main class="main-content">
+
+            <div class="page-header">
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Welcome back,
+                    <strong id="userName">User</strong> 👋
+                </p>
+
+            </div>
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <section
+                id="dashboardSection"
+                class="content-section"
+            >
+
+                <div class="hero">
+
+                    <h1>
+                        AI Product Description Generator
+                    </h1>
+
+                    <p>
+                        Create professional, attractive and
+                        SEO-friendly product descriptions using AI.
+                    </p>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <div class="card">
+
+                        <h3>✨ AI Description</h3>
+
+                        <p>
+                            Generate attractive product descriptions
+                            quickly and easily.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>🔍 SEO Keywords</h3>
+
+                        <p>
+                            Find useful keywords to improve
+                            product visibility.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>📢 Marketing</h3>
+
+                        <p>
+                            Create promotional captions for
+                            your products.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>📄 History</h3>
+
+                        <p>
+                            View your previously generated
+                            product descriptions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>❤️ Favorites</h3>
+
+                        <p>
+                            Save your important descriptions
+                            for later use.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>🌐 Multiple Languages</h3>
+
+                        <p>
+                            Generate descriptions in English,
+                            Hindi and Marathi.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>Add Product</h3>
+
+                        <p>
+                            Enter your product details.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>Generate</h3>
+
+                        <p>
+                            Let AI create the description.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>Review</h3>
+
+                        <p>
+                            Check the generated content.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <h3>Use</h3>
+
+                        <p>
+                            Copy or download your content.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= AI GENERATOR ================= -->
+
+            <section
+                id="generatorSection"
+                class="content-section hidden"
+            >
+
+                <div class="generator-container">
+
+                    <h2>✨ AI Product Description Generator</h2>
+
+                    <br>
+
+                    <div class="generator-form">
+
+                        <div class="form-group">
+
+                            <label>
+                                Product Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="productName"
+                                placeholder="Example: Wireless Headphones"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Target Audience
+                            </label>
+
+                            <input
+                                type="text"
+                                id="audience"
+                                placeholder="Example: Students"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Tone
+                            </label>
+
+                            <select id="tone">
+
+                                <option>
+                                    Professional
+                                </option>
+
+                                <option>
+                                    Friendly
+                                </option>
+
+                                <option>
+                                    Creative
+                                </option>
+
+                                <option>
+                                    Luxury
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Language
+                            </label>
+
+                            <select id="language">
+
+                                <option>
+                                    English
+                                </option>
+
+                                <option>
+                                    Hindi
+                                </option>
+
+                                <option>
+                                    Marathi
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label>
+                                Product Details
+                            </label>
+
+                            <textarea
+                                id="productDetails"
+                                placeholder="Enter product features, benefits, material, size, colour, etc."
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            class="generate-button"
+                            onclick="generateDescription()"
+                        >
+                            ✨ Generate Description
+                        </button>
+
+                    </div>
+
+
+                    <!-- RESULT -->
+
+                    <div
+                        id="result"
+                        class="result-box hidden"
+                    >
+
+                        <h3>
+                            ✨ Generated Description
+                        </h3>
+
+                        <p id="description"></p>
+
+                        <button
+                            class="copy-button"
+                            onclick="copyDescription()"
+                        >
+                            📋 Copy
+                        </button>
+
+                        <button
+                            class="copy-button"
+                            onclick="downloadDescription()"
+                        >
+                            ⬇️ Download
+                        </button>
+
+                        <button
+                            class="copy-button"
+                            onclick="saveFavorite()"
+                        >
+                            ❤️ Save Favorite
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= HISTORY ================= -->
+
+            <section
+                id="historySection"
+                class="content-section hidden"
+            >
+
+                <div class="page-header">
+
+                    <h1>📄 Description History</h1>
+
+                    <p>
+                        Your previously generated descriptions
+                    </p>
+
+                </div>
+
+                <div id="historyList"></div>
+
+            </section>
+
+
+            <!-- ================= FAVORITES ================= -->
+
+            <section
+                id="favoritesSection"
+                class="content-section hidden"
+            >
+
+                <div class="page-header">
+
+                    <h1>❤️ Favorites</h1>
+
+                    <p>
+                        Your saved product descriptions
+                    </p>
+
+                </div>
+
+                <div id="favoritesList"></div>
+
+            </section>
+
+
+            <!-- ================= SEO ================= -->
+
+            <section
+                id="seoSection"
+                class="content-section hidden"
+            >
+
+                <div class="seo-container">
+
+                    <h1>🔍 SEO Keyword Generator</h1>
+
+                    <br>
+
+                    <div class="seo-form">
+
+                        <div>
+
+                            <label>
+                                Product Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="seoProduct"
+                                placeholder="Example: Smart Watch"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Category
+                            </label>
+
+                            <input
+                                type="text"
+                                id="seoCategory"
+                                placeholder="Example: Electronics"
+                            >
+
+                        </div>
+
+
+                        <button
+                            class="seo-button"
+                            onclick="generateSEO()"
+                        >
+                            🔍 Generate
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="seoResult"
+                        class="result-box hidden"
+                    >
+
+                        <h3>
+                            SEO Keywords
+                        </h3>
+
+                        <p id="seoText"></p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= MARKETING ================= -->
+
+            <section
+                id="marketingSection"
+                class="content-section hidden"
+            >
+
+                <div class="marketing-container">
+
+                    <h1>📢 Marketing Caption Generator</h1>
+
+                    <br>
+
+                    <div class="marketing-form">
+
+                        <div>
+
+                            <label>
+                                Product Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="marketingProduct"
+                                placeholder="Example: Smart Watch"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Main Feature
+                            </label>
+
+                            <input
+                                type="text"
+                                id="marketingFeature"
+                                placeholder="Example: Long Battery Life"
+                            >
+
+                        </div>
+
+
+                        <button
+                            class="marketing-button"
+                            onclick="generateMarketing()"
+                        >
+                            📢 Generate
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="marketingResult"
+                        class="result-box hidden"
+                    >
+
+                        <h3>
+                            Marketing Caption
+                        </h3>
+
+                        <p id="marketingText"></p>
+
+                        <button
+                            class="copy-button"
+                            onclick="copyMarketing()"
+                        >
+                            📋 Copy Caption
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= PROFILE ================= -->
+
+            <section
+                id="profileSection"
+                class="content-section hidden"
+            >
+
+                <div class="profile-card">
+
+                    <h2>👤 My Profile</h2>
+
+                    <div class="profile-row">
+
+                        <strong>Name</strong>
+
+                        <span id="profileName">
+                            User
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <strong>Email</strong>
+
+                        <span id="profileEmail">
+                            user@email.com
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <strong>Account</strong>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
